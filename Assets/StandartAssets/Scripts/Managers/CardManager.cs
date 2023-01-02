@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 public class CardManager : Singleton<CardManager>
 {
@@ -15,6 +16,8 @@ public class CardManager : Singleton<CardManager>
     
     public Action OnDealCard;
     private int cardAmonut = 12;
+
+    public List<string> carDataValues;
     private void Start()
     { 
         SetCardImage();
@@ -48,19 +51,21 @@ public class CardManager : Singleton<CardManager>
     private void SetCardDealToMoving(int i)
     {
         CardMovementController cardMovementController = currentCardMovementControllers[0]; 
-        CardStatController cardPlayerController = cardMovementController.GetComponent<CardStatController>();
+        CardStatController cardStatController = cardMovementController.GetComponent<CardStatController>();
         if (i == 0 || i == 1 || i == 2  || i == 3)
         {
-            CardBoardManager.I.CurrentBoardCard = cardPlayerController;
-            CardBoardManager.I.OnCardAdd(cardPlayerController,cardMovementController);
+            cardStatController.OnChangeCardStat(CardState.BoardCardState);
+            CardBoardManager.I.CurrentBoardCard = cardStatController;
+            CardBoardManager.I.OnCardAdd(cardStatController,cardMovementController);
             if (i != 3)
             {
-                cardPlayerController.OnClosedCardImage();
+                cardStatController.OnClosedCardImage();
             }
         }
         if (i == 8 || i == 9 || i == 10 || i == 11)
         {
-            cardPlayerController.OnChangeCardStat(CardState.AI);
+            cardStatController.OnChangeCardStat(CardState.AI);
+            cardStatController.CheckToCardDataValue();
         }
         cardMovementController.SetToCardIndex(i);
         cardMovementController.OnCanMove(CardMoveState.CardDealMove);

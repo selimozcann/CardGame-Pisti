@@ -1,8 +1,7 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum CardState { PlayerCard,AI }
+public enum CardState { PlayerCard,AI ,BoardCardState}
 public abstract class CardBaseStatController : MonoBehaviour
 {
     public CardState cardState;
@@ -10,23 +9,31 @@ public abstract class CardBaseStatController : MonoBehaviour
     [SerializeField] private Sprite closedCardSprite;
     [SerializeField] private Image currentImage;
     
-    [SerializeField] private string cardValue;
+    public string cardValue;
     public string CardValue { get { return  cardValue; } }
 
     private void Start()
     {
-        SetCardValue();
+        if (cardState != CardState.AI)
+        {
+            SetCardValue();
+        }
     }
-    private void SetCardValue()
+    void SetCardValue()
     {
-        gameObject.name = RemoveIndexZero();
+        gameObject.name = RemoveIndexZero(); 
         cardValue = gameObject.name;
     }
-    private string RemoveIndexZero()
+    protected string RemoveIndexZero()
     {
-        gameObject.name = cardValue.Contains("J") ? gameObject.name.Remove(0, 1) 
-            : gameObject.name.Remove(0, 2);
+        if (gameObject.name.Length >= 1)
+        {
+            gameObject.name = cardValue.Contains("J") ? gameObject.name.Remove(0, 1) 
+                : gameObject.name.Remove(0, 2);
         
+            return gameObject.name;
+        }
+
         return gameObject.name;
     } 
     public void OnClosedCardImage()
