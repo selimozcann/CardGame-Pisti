@@ -22,7 +22,7 @@ public class CardTouchController : MonoBehaviour,IPointerDownHandler
         if (cardStatController.cardState == CardState.PlayerCard)
         {
             CardBoardManager.I.OnCardAdd(cardStatController,_cardMovementController);
-            StartCoroutine(CardBoardManager.I.CheckToCard());
+            StartCoroutine(CardBoardManager.I.CheckToCardCoroutine());
             Touched();
         }
     }

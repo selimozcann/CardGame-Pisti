@@ -247,12 +247,13 @@ MonoBehaviour:
   image: {fileID: 8291457358770159190, guid: 0898449569ed5854db1f289127bd3e07, type: 3}
   cardImage:
   - {fileID: 21300000, guid: 5fc38040bf1cd4cb1b072ca1983420e5, type: 3}
-  - {fileID: 21300000, guid: 8ed875490a564496c876d561549984d5, type: 3}
   - {fileID: 21300000, guid: 406d38762ea4546929738d54a2374884, type: 3}
   - {fileID: 21300000, guid: 6932fa0b44908471b8d0f26aed4befc4, type: 3}
   - {fileID: 21300000, guid: 6f630536920c54a4fbd801c9b99da05d, type: 3}
   - {fileID: 21300000, guid: 1a036eed3ae114f79a850e1b166f4555, type: 3}
   - {fileID: 21300000, guid: 7e22f01caf1da4a998d24a30fa5a5df6, type: 3}
+  - {fileID: 21300000, guid: 9984b152933d743cea9848eb3a68c82d, type: 3}
+  - {fileID: 21300000, guid: 8ed875490a564496c876d561549984d5, type: 3}
   - {fileID: 21300000, guid: 00b7060b1ea2a491eaf3b8ff42d200ce, type: 3}
   - {fileID: 21300000, guid: e21290babbd2c4072aa603819c18df53, type: 3}
   - {fileID: 21300000, guid: c57a4967bd2064061807225b9415f1b7, type: 3}
@@ -280,7 +281,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 11446e522d7ab45b3b385d25fbbf53e8, type: 3}
   - {fileID: 21300000, guid: 76bdcdb01060c4f9e9845d7df2f4cd03, type: 3}
   - {fileID: 21300000, guid: 32a67e438a554463296dbcb4fd5e5427, type: 3}
-  - {fileID: 21300000, guid: 9984b152933d743cea9848eb3a68c82d, type: 3}
   - {fileID: 21300000, guid: 9722057ba234740e4a8a18eec54f258e, type: 3}
   - {fileID: 21300000, guid: a41495dc3629d483292cdb2e1b2f35f3, type: 3}
   - {fileID: 21300000, guid: 0e937df2df5204aa4a794ed379e50e21, type: 3}

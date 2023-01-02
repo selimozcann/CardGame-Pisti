@@ -46,25 +46,37 @@ public class CardBoardManager : Singleton<CardBoardManager>
     {
         cardStatControllers.Add(cardStatController);
         _cardMovementControllers.Add(cardMovementController);
+        SetToBoardCard();
         CurrentBoardCard = cardStatController;
     }
     private void SetToBoardCard() => OldBoardCard = CurrentBoardCard;
-    public IEnumerator CheckToCard()
+    internal IEnumerator CheckToCardCoroutine()
     {
-        SetToBoardCard();
-        yield return new WaitForSeconds(1.2f);
-        if (oldBoardCard.CardValue == CurrentBoardCard.CardValue)
+        Debug.Log("CurrentBoardCardValue =>>> " + CurrentBoardCard.CardValue);
+        var canCheckCardControls = oldBoardCard.CardValue == CurrentBoardCard.CardValue;
+        var canCheckCardControlsSecond = _cardMovementControllers.Count > 0  && CurrentBoardCard.CardValue == "J";
+        if (canCheckCardControls)
         {
-            for (int i = _cardMovementControllers.Count - 1; i >= 0; i--)
-            {
-                yield return new WaitForSeconds(.025f);
-                _cardMovementControllers[i]._cardMoveState =
-                    CardMoveState.CardTakeMoveButtom;
-            }
+            yield return new WaitForSeconds(1.2f);
+            CheckToCard();
+        }
+        else if (canCheckCardControlsSecond)
+        {
+            yield return new WaitForSeconds(1.2f);
+            CheckToCard();
+        }
+    }
+    private void CheckToCard()
+    {
+        for (int i = _cardMovementControllers.Count - 1; i >= 0; i--)
+        {
+            _cardMovementControllers[i]._cardMoveState =
+                CardMoveState.CardTakeMoveButtom;
         }
         OnCardDelete();
+        StopCoroutine(CheckToCardCoroutine());
     }
-    public void OnCardDelete()
+    private void OnCardDelete()
     {
         cardStatControllers.Clear();
         _cardMovementControllers.Clear();
