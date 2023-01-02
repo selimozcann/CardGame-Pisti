@@ -33,6 +33,7 @@ public class CardTouchController : MonoBehaviour,IPointerDownHandler
             StartCoroutine(CardBoardManager.I.CheckToCardCoroutine());
             Touched();
             GameManager.I.ChangeToGameState(GameState.None);
+            cardStatController.OnAIMove();
             yield return new WaitForSeconds(2f);
             GameManager.I.ChangeToGameState(GameState.Playing);
         }

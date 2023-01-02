@@ -9,4 +9,10 @@ public class CardStatController : CardBaseStatController
             CardManager.I.carDataValues.Add(RemoveIndexZero()); 
         }
     }
+    public void OnAIMove()
+    {
+        // AI Check To Code.
+        var currentAIMove = CardManager.I.carDataValues.Contains(CardBoardManager.I.CurrentBoardCard.CardValue);
+        Debug.Log("CurrentAIMove =>>> " + currentAIMove);
+    }
 }
