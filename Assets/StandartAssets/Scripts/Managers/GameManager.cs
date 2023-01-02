@@ -8,7 +8,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        ChangeToGameState(GameState.None);
+        // ChangeToGameState(GameState.None);
     }
     internal void ChangeToGameState(GameState canGameState)
     {
