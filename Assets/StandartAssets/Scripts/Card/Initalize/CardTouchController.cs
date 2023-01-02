@@ -1,12 +1,14 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+
 public class CardTouchController : MonoBehaviour,IPointerDownHandler
 {
     [SerializeField] private RectTransform cardParentObject;
     [SerializeField] private CardMovementController _cardMovementController;
     [SerializeField] private CardStatController cardStatController;
-    private bool canBoardMove;
     private RectTransform _rectTransform;
+    private bool canTakeCard = true;
     private void Start()
     {
          cardParentObject = GetComponentInParent<RectTransform>();
@@ -19,11 +21,20 @@ public class CardTouchController : MonoBehaviour,IPointerDownHandler
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (cardStatController.cardState == CardState.PlayerCard)
+        StartCoroutine(TouchedCoroutine());
+    }
+    IEnumerator TouchedCoroutine()
+    {
+        var canCardMove = GameManager.I.GameState == GameState.Playing && canTakeCard && cardStatController.cardState == CardState.PlayerCard;
+        if (canCardMove)
         {
+            canTakeCard = false;
             CardBoardManager.I.OnCardAdd(cardStatController,_cardMovementController);
             StartCoroutine(CardBoardManager.I.CheckToCardCoroutine());
             Touched();
+            GameManager.I.ChangeToGameState(GameState.None);
+            yield return new WaitForSeconds(2f);
+            GameManager.I.ChangeToGameState(GameState.Playing);
         }
     }
 }

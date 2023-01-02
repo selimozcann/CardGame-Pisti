@@ -12,6 +12,7 @@ public class CardBoardManager : Singleton<CardBoardManager>
 
     private CardStatController OldBoardCard
     {
+        get { return oldBoardCard;}
         set
         {
             if (cardStatControllers.Count >= 2)
@@ -52,33 +53,36 @@ public class CardBoardManager : Singleton<CardBoardManager>
     private void SetToBoardCard() => OldBoardCard = CurrentBoardCard;
     internal IEnumerator CheckToCardCoroutine()
     {
-        Debug.Log("CurrentBoardCardValue =>>> " + CurrentBoardCard.CardValue);
-        var canCheckCardControls = oldBoardCard.CardValue == CurrentBoardCard.CardValue;
-        var canCheckCardControlsSecond = _cardMovementControllers.Count > 0  && CurrentBoardCard.CardValue == "J";
-        if (canCheckCardControls)
+        if (OldBoardCard &&CurrentBoardCard)
         {
-            yield return new WaitForSeconds(1.2f);
-            CheckToCard();
-        }
-        else if (canCheckCardControlsSecond)
-        {
-            yield return new WaitForSeconds(1.2f);
-            CheckToCard();
+            var canCheckCardControls = oldBoardCard.CardValue == CurrentBoardCard.CardValue;
+            var canCheckCardControlsSecond = _cardMovementControllers.Count > 1  && CurrentBoardCard.CardValue == "J";
+            if (canCheckCardControls)
+            {
+                yield return new WaitForSeconds(1.2f);
+                CheckToCard();
+            }
+            else if (canCheckCardControlsSecond)
+            {
+                yield return new WaitForSeconds(1.2f);
+                CheckToCard();
+            }
         }
     }
     private void CheckToCard()
     {
         for (int i = _cardMovementControllers.Count - 1; i >= 0; i--)
         {
-            _cardMovementControllers[i]._cardMoveState =
-                CardMoveState.CardTakeMoveButtom;
+            _cardMovementControllers[i]._cardMoveState = CardMoveState.CardTakeMoveButtom;
         }
         OnCardDelete();
         StopCoroutine(CheckToCardCoroutine());
     }
     private void OnCardDelete()
     {
+        CurrentBoardCard = OldBoardCard = null;
         cardStatControllers.Clear();
         _cardMovementControllers.Clear();
+        GameManager.I.ChangeToGameState(GameState.Playing);
     }
 }

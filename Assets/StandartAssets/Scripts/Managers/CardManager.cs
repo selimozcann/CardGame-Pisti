@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-
-public enum CardDealState { None,Dealing }
 public class CardManager : Singleton<CardManager>
 {
-    public CardDealState cardDealState;
     [SerializeField] private CardMovementController image;
     [SerializeField] private List<Sprite> cardImage;
     [SerializeField] private Transform cardPosition;
@@ -21,7 +18,6 @@ public class CardManager : Singleton<CardManager>
     private void Start()
     { 
         SetCardImage();
-        OnChangeCardState(CardDealState.Dealing);
         StartCoroutine(DealingToCard());
     }
     private void SetCardImage()
@@ -36,6 +32,8 @@ public class CardManager : Singleton<CardManager>
             initCardMovement.name = cardImage[i].name;
             initCardMovement.gameObject.SetActive(false);
         }
+        
+        GameManager.I.ChangeToGameState(GameState.Playing);
     }
     private IEnumerator DealingToCard()
     {
@@ -44,7 +42,6 @@ public class CardManager : Singleton<CardManager>
             yield return new WaitForSeconds(.2f);
             SetCardDealToMoving(i);
         }
-        OnChangeCardState(CardDealState.None);
         StopCoroutine(DealingToCard());
     }
 
@@ -68,9 +65,5 @@ public class CardManager : Singleton<CardManager>
         cardMovementController.SetToCardIndex(i);
         cardMovementController.OnCanMove(CardMoveState.CardDealMove);
         currentCardMovementControllers.RemoveAt(0);
-    }
-    private void OnChangeCardState(CardDealState canCardDealState)
-    {
-        cardDealState = canCardDealState;
     }
 }
