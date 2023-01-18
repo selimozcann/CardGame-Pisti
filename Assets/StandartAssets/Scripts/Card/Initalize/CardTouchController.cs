@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CardTouchController : MonoBehaviour,IPointerDownHandler
+public class CardTouchController : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,ITouch
 {
     [SerializeField] private RectTransform cardParentObject;
     [SerializeField] private CardMovementController _cardMovementController;
@@ -21,7 +21,11 @@ public class CardTouchController : MonoBehaviour,IPointerDownHandler
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        StartCoroutine(TouchedCoroutine());
+        OnPointerDown();
+    }
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        OnPointerUp();
     }
     IEnumerator TouchedCoroutine()
     {
@@ -37,5 +41,13 @@ public class CardTouchController : MonoBehaviour,IPointerDownHandler
             yield return new WaitForSeconds(2f);
             GameManager.I.ChangeToGameState(GameState.Playing);
         }
+    }
+    public void OnPointerDown()
+    {
+        StartCoroutine(TouchedCoroutine());
+    }
+    public void OnPointerUp()
+    {
+        
     }
 }

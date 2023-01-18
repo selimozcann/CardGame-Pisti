@@ -1,5 +1,6 @@
 
 public interface ITouch
 {
-    void Touched();
+    void OnPointerDown();
+    void OnPointerUp();
 }

@@ -11,8 +11,6 @@ public class CardStatController : CardBaseStatController
     }
     public void OnAIMove()
     {
-        // AI Check To Code.
         var currentAIMove = CardManager.I.carDataValues.Contains(CardBoardManager.I.CurrentBoardCard.CardValue);
-        Debug.Log("CurrentAIMove =>>> " + currentAIMove);
     }
 }
