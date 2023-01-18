@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class CardBoardManager : Singleton<CardBoardManager>
@@ -47,11 +49,14 @@ public class CardBoardManager : Singleton<CardBoardManager>
     {
         cardStatControllers.Add(cardStatController);
         _cardMovementControllers.Add(cardMovementController);
-        SetToBoardCard();
-        CurrentBoardCard = cardStatController;
+        SetToBoardCard(cardStatController);
     }
-    private void SetToBoardCard() => OldBoardCard = CurrentBoardCard;
-    internal IEnumerator CheckToCardCoroutine()
+    private CardStatController SetToBoardCard(CardStatController cardStatController) {
+        OldBoardCard = CurrentBoardCard;
+        CurrentBoardCard = cardStatController;
+        return cardStatController;
+    } 
+    public async void CheckToCardToThread()
     {
         if (OldBoardCard &&CurrentBoardCard)
         {
@@ -59,14 +64,16 @@ public class CardBoardManager : Singleton<CardBoardManager>
             var canCheckCardControlsSecond = _cardMovementControllers.Count > 1  && CurrentBoardCard.CardValue == "J";
             if (canCheckCardControls)
             {
-                yield return new WaitForSeconds(1.2f);
+                await Task.Delay(1200);
                 CheckToCard();
             }
             else if (canCheckCardControlsSecond)
             {
-                yield return new WaitForSeconds(1.2f);
+                await Task.Delay(1200);
                 CheckToCard();
             }
+            await Task.Delay(2000);
+            GameManager.I.ChangeToGameState(GameState.Playing);
         }
     }
     private void CheckToCard()
@@ -76,7 +83,7 @@ public class CardBoardManager : Singleton<CardBoardManager>
             _cardMovementControllers[i]._cardMoveState = CardMoveState.CardTakeMoveButtom;
         }
         OnCardDelete();
-        StopCoroutine(CheckToCardCoroutine());
+        CheckToCardToThread();
     }
     private void OnCardDelete()
     {

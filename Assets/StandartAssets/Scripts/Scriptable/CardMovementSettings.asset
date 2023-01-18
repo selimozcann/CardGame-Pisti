@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0cae21c8f3be0a4896baba746909919, type: 3}
   m_Name: CardMovementSettings
   m_EditorClassIdentifier: 
-  _cardSpeed: 0
+  _cardSpeed: 2.8
   lerpTime: 5

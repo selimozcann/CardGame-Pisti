@@ -4,17 +4,18 @@ using UnityEngine.EventSystems;
 
 public class CardTouchController : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,ITouch
 {
-    [SerializeField] private RectTransform cardParentObject;
+   
     [SerializeField] private CardMovementController _cardMovementController;
     [SerializeField] private CardStatController cardStatController;
-    private RectTransform _rectTransform;
+    [HideInInspector] public RectTransform _rectTransform;
+    public RectTransform cardParentObject;
     private bool canTakeCard = true;
     private void Start()
     {
          cardParentObject = GetComponentInParent<RectTransform>();
         _rectTransform = GetComponent<RectTransform>();
     }
-    private void Touched()
+    public void Touched()
     {
         _rectTransform.SetSiblingIndex(cardParentObject.transform.childCount - 1); 
         _cardMovementController._cardMoveState =  CardMoveState.CardBoardMove;
@@ -27,27 +28,25 @@ public class CardTouchController : MonoBehaviour,IPointerDownHandler,IPointerUpH
     {
         OnPointerUp();
     }
-    IEnumerator TouchedCoroutine()
+    void OnTouchedToCard()
     {
         var canCardMove = GameManager.I.GameState == GameState.Playing && canTakeCard && cardStatController.cardState == CardState.PlayerCard;
         if (canCardMove)
         {
             canTakeCard = false;
             CardBoardManager.I.OnCardAdd(cardStatController,_cardMovementController);
-            StartCoroutine(CardBoardManager.I.CheckToCardCoroutine());
+            CardBoardManager.I.CheckToCardToThread();
             Touched();
             GameManager.I.ChangeToGameState(GameState.None);
             cardStatController.OnAIMove();
-            yield return new WaitForSeconds(2f);
-            GameManager.I.ChangeToGameState(GameState.Playing);
         }
     }
     public void OnPointerDown()
     {
-        StartCoroutine(TouchedCoroutine());
+        OnTouchedToCard();
     }
     public void OnPointerUp()
     {
-        
+        Debug.Log("OnPointerUp Event is called");
     }
 }

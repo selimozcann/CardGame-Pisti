@@ -55,6 +55,6 @@ public class CardMovementController : MonoBehaviour
     }
     private void CardBoardMoving(Vector3 targetPos)
     {
-        _rectTransform.localPosition = Vector2.Lerp(_rectTransform.localPosition, targetPos, 2.5f * Time.deltaTime);
+        _rectTransform.localPosition = Vector2.Lerp(_rectTransform.localPosition, targetPos, _cardMovementSettings.CardSpeed * Time.deltaTime);
     }
 }

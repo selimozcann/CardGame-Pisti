@@ -245,12 +245,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 8291457358770159190, guid: 0898449569ed5854db1f289127bd3e07, type: 3}
   cardImage:
+  - {fileID: 21300000, guid: 94a371b0ae7d742c684ac77f5ac42793, type: 3}
   - {fileID: 21300000, guid: 0e937df2df5204aa4a794ed379e50e21, type: 3}
   - {fileID: 21300000, guid: 5fc38040bf1cd4cb1b072ca1983420e5, type: 3}
   - {fileID: 21300000, guid: 406d38762ea4546929738d54a2374884, type: 3}
   - {fileID: 21300000, guid: 4c668e55ba5594f389e06cc9f0c1d4f5, type: 3}
+  - {fileID: 21300000, guid: a3013bd0814174e7e923c852e7782a61, type: 3}
   - {fileID: 21300000, guid: 6f630536920c54a4fbd801c9b99da05d, type: 3}
   - {fileID: 21300000, guid: 1a036eed3ae114f79a850e1b166f4555, type: 3}
+  - {fileID: 21300000, guid: 32a67e438a554463296dbcb4fd5e5427, type: 3}
   - {fileID: 21300000, guid: 7e22f01caf1da4a998d24a30fa5a5df6, type: 3}
   - {fileID: 21300000, guid: 9984b152933d743cea9848eb3a68c82d, type: 3}
   - {fileID: 21300000, guid: 8ed875490a564496c876d561549984d5, type: 3}
@@ -280,13 +283,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1ad4204d536c14810860b9af85a61318, type: 3}
   - {fileID: 21300000, guid: 11446e522d7ab45b3b385d25fbbf53e8, type: 3}
   - {fileID: 21300000, guid: 76bdcdb01060c4f9e9845d7df2f4cd03, type: 3}
-  - {fileID: 21300000, guid: 32a67e438a554463296dbcb4fd5e5427, type: 3}
   - {fileID: 21300000, guid: 9722057ba234740e4a8a18eec54f258e, type: 3}
   - {fileID: 21300000, guid: a41495dc3629d483292cdb2e1b2f35f3, type: 3}
   - {fileID: 21300000, guid: 534ef66112ead4e909c56cc48472e387, type: 3}
   - {fileID: 21300000, guid: 30edf2b8b46e84a8eb80c029e14b8dff, type: 3}
   - {fileID: 21300000, guid: e7d03619fbf3541da999ad2c1159ef19, type: 3}
-  - {fileID: 21300000, guid: a3013bd0814174e7e923c852e7782a61, type: 3}
   - {fileID: 21300000, guid: dc2691a6154db4146a2051ed75d22f35, type: 3}
   - {fileID: 21300000, guid: f68c35466fd534fc7824d2b45373a979, type: 3}
   - {fileID: 21300000, guid: 5af1181e97e454977b8ad3c0cc1f1ca4, type: 3}
@@ -294,13 +295,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1b4e529b26da54900b593753703d4f37, type: 3}
   - {fileID: 21300000, guid: 2e21500f642354e609ad463c379ff1f7, type: 3}
   - {fileID: 21300000, guid: 3da88afd66ca44a3995855631fad4ae3, type: 3}
-  - {fileID: 21300000, guid: 94a371b0ae7d742c684ac77f5ac42793, type: 3}
   - {fileID: 21300000, guid: c291f2b01420b41b98e872c839dee064, type: 3}
   - {fileID: 21300000, guid: 9a2931137fb42467db068ec0055579a7, type: 3}
   cardPosition: {fileID: 2033280073}
   cardParent: {fileID: 1120373900}
   currentCardMovementControllers: []
   carDataValues: []
+  aiCards: []
 --- !u!114 &469340144
 MonoBehaviour:
   m_ObjectHideFlags: 0

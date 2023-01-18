@@ -5,13 +5,20 @@ public enum CardState { PlayerCard,AI ,BoardCardState}
 public abstract class CardBaseStatController : MonoBehaviour
 {
     public CardState cardState;
-    
+    // public CardMoveState cardMovementState;
+
+    [SerializeField] protected CardMovementController cardMovementController;
+    [SerializeField] protected CardTouchController cardTouchController;
     [SerializeField] private Sprite closedCardSprite;
     [SerializeField] private Image currentImage;
     
     public string cardValue;
-    public string CardValue { get { return  cardValue; } }
+    public string CardValue { get { return cardValue; }protected  set { cardValue = value; } }
 
+    protected void ChangeToCardStat(CardStatController c)
+    {
+        c.cardTouchController._rectTransform.SetSiblingIndex(c.cardTouchController.cardParentObject.childCount -1);
+    }
     private void Start()
     {
         if (cardState != CardState.AI)

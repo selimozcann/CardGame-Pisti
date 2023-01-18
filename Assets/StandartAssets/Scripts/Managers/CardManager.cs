@@ -18,6 +18,7 @@ public class CardManager : Singleton<CardManager>
     private int cardAmonut = 12;
 
     public List<string> carDataValues;
+    public List<CardStatController> aiCards;
     private void Start()
     { 
         SetCardImage();

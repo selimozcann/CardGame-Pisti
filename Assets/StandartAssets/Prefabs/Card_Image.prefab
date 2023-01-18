@@ -105,9 +105,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9922f84759623c84fb775c777100ccc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardParentObject: {fileID: 0}
   _cardMovementController: {fileID: 8291457358770159190}
   cardStatController: {fileID: 1935622431991993127}
+  _rectTransform: {fileID: 0}
+  cardParentObject: {fileID: 0}
 --- !u!114 &1935622431991993127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,5 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardState: 0
+  cardMovementController: {fileID: 8291457358770159190}
+  cardTouchController: {fileID: 4120217444389925666}
   closedCardSprite: {fileID: 21300000, guid: f604a25efd96c4f5092f5348f1f9690f, type: 3}
   currentImage: {fileID: 1870815346079248912}
+  cardValue: 
