@@ -12,6 +12,7 @@ public class CardBoardManager : Singleton<CardBoardManager>
     
     [SerializeField] private CardStatController oldBoardCard;
 
+    private const string jStr = "J";
     private CardStatController OldBoardCard
     {
         get { return oldBoardCard;}
@@ -61,18 +62,18 @@ public class CardBoardManager : Singleton<CardBoardManager>
         if (OldBoardCard &&CurrentBoardCard)
         {
             var canCheckCardControls = oldBoardCard.CardValue == CurrentBoardCard.CardValue;
-            var canCheckCardControlsSecond = _cardMovementControllers.Count > 1  && CurrentBoardCard.CardValue == "J";
+            var canCheckCardControlsSecond = _cardMovementControllers.Count > 1  && CurrentBoardCard.CardValue == jStr;
             if (canCheckCardControls)
             {
-                await Task.Delay(1200);
+                await Task.Delay(2000);
                 CheckToCard();
             }
             else if (canCheckCardControlsSecond)
             {
-                await Task.Delay(1200);
+                await Task.Delay(2000);
                 CheckToCard();
             }
-            await Task.Delay(2000);
+            await Task.Delay(1000);
             GameManager.I.ChangeToGameState(GameState.Playing);
         }
     }

@@ -17,6 +17,7 @@ public abstract class CardBaseStatController : MonoBehaviour
 
     protected void ChangeToCardStat(CardStatController c)
     {
+        CardBoardManager.I.OnCardAdd(c, cardMovementController);
         c.cardTouchController._rectTransform.SetSiblingIndex(c.cardTouchController.cardParentObject.childCount -1);
     }
     private void Start()

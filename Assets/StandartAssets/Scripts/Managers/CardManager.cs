@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+
 public class CardManager : Singleton<CardManager>
 {
     [SerializeField] private CardMovementController image;

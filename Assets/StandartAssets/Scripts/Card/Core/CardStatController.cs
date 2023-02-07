@@ -28,7 +28,9 @@ public class CardStatController : CardBaseStatController
         .ForEach(x =>
         {
               x.cardMovementController._cardMoveState = CardMoveState.CardBoardMove;
-            ChangeToCardStat(x);
+             ChangeToCardStat(x);
         });
+
+        // CardBoardManager.I.CurrentBoardCard = this;
     }
 }
