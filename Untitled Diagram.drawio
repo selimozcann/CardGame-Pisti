@@ -1,1 +1,43 @@
-<mxfile host="app.diagrams.net" modified="2023-03-05T16:01:08.278Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15" etag="oua91kb63uoR18xxjIqJ" version="20.8.23" type="github"><diagram name="Page-1" id="dOfPmA-EBp4hy5qx1a14">7VjbcpswEP0aHu3hapzHmDhNpvV0Os40zeMaFKAWEiOEL/36SiDMNU5mcqGZ6Ythj1a3o7OrxZrlJYcvDNJoRQOENVMPDpp1pZnmhWOLXwkcS2BmuyUQsjgoIaMG1vEfpEBdoXkcoKzlyCnFPE7boE8JQT5vYcAY3bfdHiluz5pCiHrA2gfcR+/jgEclOnf0Gr9BcRhVMxu6akmgclZAFkFA9w3IWmqWxyjl5Vty8BCW3FW8lP2un2g9LYwhwl/S4Su7vPxxC4/IXc0e7yb5ylleT4wLtTh+rHaMAkGAMinjEQ0pAbys0QWjOQmQHFYXVu3zjdJUgIYAfyPOj+o0IedUQBFPsGot55QTPbkXBWU0Z77yWvjfjYvNzT2LnJ3NYBOS7Oek0gSwEPFzG52dKBdSRTRBnB1FR4Yw8HjXXggo0YQnv5pX8aKoHab53Cp3gHM1kwcsWAER8mFTP9PMGRarX2yYeAvl2y2JOWBJoOn1W9div3xFxbK7p9c+m30Uc7ROoaBwLwJ06BwGaN8hxtGhAfWJU63uTMlbxbetzH0dLEblEjUDpYqT13A9eNKfSNHDSn2hoq0PEvS5RXYELWTJB9WMSJ4I9w0VToWg9aQQr14aOSnNbjceiQQuxRQhInN8hPxtcQHUY+l+8ZhBIrVNNll6Oo3XRUUvBAZO88mosJx2VDgDUeE6HxkV1nAGErQnYk8eJZxRjFUyGpk9u5NS5gPszT+UvfkYOUWwxY6/msaDHGzqVObVQQ1eWkdlvWEucj5DLnJeKO21YDsmYTaYodY+i1MOGyyz0hVwEA/ZFWKC2OgRYZntkDD1fkicSuaoXY++1w1gjxoTjTB4aLa9f0xUjP7bQWG4/4/nH/kiOLvMTta6o7kfdW7jbqpS1RCXriio6qHhOqhXiO0EoZMNZEXxJadVPYrW5qgjZzxH71RQs9GLgFIwvSNb0Gc+5RLIIIBtLLpuxWcbBqZ5trYwikPUPEtbeEn5INXD1ANxBWWln3TLeY7Bh21/9N6Q21I9ueQO0rjq9owwQkhQJsp31JxtOroMXNudOu2rb6iWfishCLP+Q6Zoa/yrZS3/Ag==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2023-03-05T16:02:23.657Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15" etag="qsUHaJ1f59G9A9CwPblU" version="20.8.23" type="github">
+  <diagram name="Page-1" id="dOfPmA-EBp4hy5qx1a14">
+    <mxGraphModel dx="954" dy="647" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="KrAAQIafe7M6fT-uM5EF-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="BcO19bHWrh5v4rabgnsV-1" target="KrAAQIafe7M6fT-uM5EF-16" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BcO19bHWrh5v4rabgnsV-1" value="CardManager.cs&lt;br&gt;Initalize,&lt;br&gt;StartMove" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="760" y="40" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="KrAAQIafe7M6fT-uM5EF-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="KrAAQIafe7M6fT-uM5EF-1" target="KrAAQIafe7M6fT-uM5EF-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KrAAQIafe7M6fT-uM5EF-1" value="CardStat.cs&lt;br&gt;enum board, move , unmove&lt;br&gt;throw when check to board card&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="350" y="50" width="175" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="KrAAQIafe7M6fT-uM5EF-3" value="CardMovementController.cs" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="480" width="185" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="KrAAQIafe7M6fT-uM5EF-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="KrAAQIafe7M6fT-uM5EF-5" target="KrAAQIafe7M6fT-uM5EF-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KrAAQIafe7M6fT-uM5EF-5" value="CardMovementControllerSettings.cs&lt;br&gt;Scriptable Data Container" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="320" y="200" width="210" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="KrAAQIafe7M6fT-uM5EF-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="KrAAQIafe7M6fT-uM5EF-10" target="KrAAQIafe7M6fT-uM5EF-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KrAAQIafe7M6fT-uM5EF-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="KrAAQIafe7M6fT-uM5EF-10" target="KrAAQIafe7M6fT-uM5EF-16" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KrAAQIafe7M6fT-uM5EF-10" value="CardTouchController.cs&lt;br&gt;when touched to card&amp;nbsp;&lt;br&gt;event-base =&amp;gt; touched" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="500" y="560" width="185" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="KrAAQIafe7M6fT-uM5EF-16" value="CardBoardManager.cs&lt;br&gt;masadaki kartların tümünün datası tutulacak&lt;br&gt;kartların kontrolu yapilacak&amp;nbsp;&lt;br&gt;gamestate tutulacak." style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="747.5" y="250" width="185" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
